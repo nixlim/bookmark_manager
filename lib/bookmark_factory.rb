@@ -1,11 +1,9 @@
 class BookmarkFactory
 
-  def initialize(bookmark = Bookmark)
-    @bookmark = bookmark
-  end
+  attr_reader :bookmarks
 
-  def create_bookmark
-    @bookmark.new
+  def initialize
+    @bookmarks = ['http://www.google.com', 'http://www.bbc.co.uk/news', 'http://www.corgi']
   end
 
 end
