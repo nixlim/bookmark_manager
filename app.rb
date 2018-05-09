@@ -5,8 +5,7 @@ require_relative 'lib/bookmark_factory'
  class BookmarkManager < Sinatra::Base
 
    get '/' do
-     bf = BookmarkFactory.new
-     @bookmarks = bf.bookmarks
+     @bookmarks = BookmarkFactory.all
      erb(:index)
    end
 
