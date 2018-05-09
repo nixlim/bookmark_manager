@@ -6,11 +6,6 @@ feature 'View links' do
 
   scenario 'view google link' do
     visit('/')
-    expect(page).to have_content("http://www.google.com")
-  end
-
-  scenario 'view bbc link' do
-    visit('/')
-    expect(page).to have_content("http://www.bbc.co.uk/news")
+    expect(page).to have_content("http://google.com")
   end
 end
