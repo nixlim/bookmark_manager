@@ -1,11 +1,11 @@
-require 'pg'
+require './lib/database_connector'
 
 class BookmarkFactory
 
   def self.all
     @bookmarks = []
-    conn = PG.connect(dbname: 'bookmark_manager')
-    dbdata = conn.exec("SELECT * FROM bookmarks ORDER BY id")
+    connection = DatabaseConnector.connect
+    dbdata = connection.exec("SELECT * FROM bookmarks ORDER BY id")
     dbdata.map {|row| row['url']}
   end
 
