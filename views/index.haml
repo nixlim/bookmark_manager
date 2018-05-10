@@ -1,0 +1,8 @@
+%h1 List of bookmarks
+%ul
+  - @bookmarks.each do |bookmark|
+    %li= bookmark
+%form{action: '/add_bookmark', method: 'POST'}
+  %label New URL to add
+  %input.input_field{type: 'text', name: 'url'}
+  %input.submit_button{type: 'submit', value: 'Add new bookmark'}
