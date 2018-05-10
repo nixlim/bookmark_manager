@@ -11,7 +11,7 @@ require_relative 'lib/bookmark_factory'
    end
 
    post '/add_bookmark' do
-     #run the code to add bookmark
+     BookmarkFactory.create(params[:url])
      redirect '/'
    end
 
