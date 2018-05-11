@@ -6,8 +6,9 @@ feature 'Adding bookmarks' do
 
   scenario 'add a new link' do
     visit '/'
+    fill_in 'title', with: "CNN"
     fill_in 'url', with: "http://www.cnn.com"
     click_on(class: 'submit_button')
-    expect(page).to have_content "cnn.com"
+    expect(page).to have_content "CNN"
   end
 end

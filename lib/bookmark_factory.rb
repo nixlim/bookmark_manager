@@ -1,9 +1,10 @@
 require './lib/database_connector'
+require './lib/bookmark'
 
 class BookmarkFactory
 
-  def self.all
-    db_connection.exec("SELECT * FROM bookmarks ORDER BY id").map {|row| row['url']}
+  def self.all(bookmark_class = Bookmark)
+    p db_connection.exec("SELECT * FROM bookmarks ORDER BY id").map {|row| bookmark_class.new(row['id'], row['title'], row['url'])}
   end
 
   def self.check_url(url)

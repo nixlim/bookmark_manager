@@ -2,8 +2,10 @@
 %p= @error
 %ul
   - @bookmarks.each do |bookmark|
-    %li= bookmark
+    %li= bookmark.title
 %form{action: '/add_bookmark', method: 'POST'}
-  %label New URL to add
+  %label Title:
+  %input{type: 'text', name: 'title'}
+  %label URL:
   %input.input_field{type: 'text', name: 'url'}
   %input.submit_button{type: 'submit', value: 'Add new bookmark'}
