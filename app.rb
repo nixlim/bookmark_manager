@@ -13,7 +13,7 @@ require_relative 'lib/bookmark_factory'
    end
 
    post '/add_bookmark' do
-     session[:response] = BookmarkFactory.check_url(params[:url])
+     session[:response] = BookmarkFactory.check_url(params[:title], params[:url])
      redirect '/'
    end
 

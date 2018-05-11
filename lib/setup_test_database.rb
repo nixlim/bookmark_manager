@@ -7,7 +7,7 @@ module SetupTestDatabase
   end
 
   def self.create_rows
-    DatabaseConnector.connect.exec('INSERT INTO bookmarks(url) VALUES (\'http://www.makersacademy.com\'), (\'http://google.com\'), (\'http://news.bbc.co.uk\')')
+    DatabaseConnector.connect.exec('INSERT INTO bookmarks(url, title) VALUES (\'http://www.makersacademy.com\', \'Makers Academy\'), (\'http://google.com\', \'Google\'), (\'http://news.bbc.co.uk\', \'BBC News\')')
   end
 
   def self.reset_database
