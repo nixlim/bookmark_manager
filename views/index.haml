@@ -1,8 +1,9 @@
 %h1 List of bookmarks
-%p= @error
+%p= flash[:error]
 %ul
   - @bookmarks.each do |bookmark|
-    %li= bookmark.title
+    %li
+      %a{href: bookmark.url}= bookmark.title
 %form{action: '/add_bookmark', method: 'POST'}
   %label Title:
   %input{type: 'text', name: 'title'}

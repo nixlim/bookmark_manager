@@ -16,7 +16,7 @@ describe BookmarkFactory do
       expect(described_class.create('Makers','https://www.makersacademy.com', bookmark_class)).to eq [bookmark_instance]
     end
     it 'checks whether the submitted URL is a valid URL' do
-      expect(described_class.check_url('cnn', 'cnn')).to eq 'Invalid URL submitted, try again.'
+      expect(described_class.check_url('cnn', 'cnn')).to be false
     end
   end
 end

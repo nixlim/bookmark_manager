@@ -4,11 +4,11 @@ require './lib/bookmark'
 class BookmarkFactory
 
   def self.all(bookmark_class = Bookmark)
-    p db_connection.exec("SELECT * FROM bookmarks ORDER BY id").map {|row| bookmark_class.new(row['id'], row['title'], row['url'])}
+    db_connection.exec("SELECT * FROM bookmarks ORDER BY id").map {|row| bookmark_class.new(row['id'], row['title'], row['url'])}
   end
 
   def self.check_url(title, url)
-    url =~ /\A#{URI::regexp}\z/ ? create(title, url) : 'Invalid URL submitted, try again.'
+    url =~ /\A#{URI::regexp}\z/ ? create(title, url) : false
   end
 
   def self.create(title, url, bookmark_class = Bookmark)
